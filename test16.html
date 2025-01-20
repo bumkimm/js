@@ -4,23 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="style.scss" rel="stylesheet" type="text/css">
+    <link href="style.scss" rel="stylesheet" type="text/scss">
 </head>
 <style>
+    .container{
+        display: flex;
+        border: 1px solid red;
+        width: 100vw;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+    }
+    .display {
+        background-color: #444;
+        color: white;
+        padding: 20px;
+        text-align: right;
+        border-radius: 25px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+}
     .btn1{
         width: 40px;
         height: 40px;
         border-radius: 50%;
         background-color: brown;
+        font-size: 1.5em;
+        line-height: 2em;
+        font-weight: 600;
+        transition: all 0.2s;
+        border: none;
+        padding: 0;
     }
     .btn1:hover{
         background-color: aqua;
     }
 </style>
 <body>
-    <table border = "2">
+    <table border = "2" class = "container" class="display">
+        
         <tr>
-            <td colspan="4"><input type="text" id="input"></td>
+            <td colspan="4"><input type="text" id="input">
+                
+            </td>
         </tr>
         <tr>
             <td><button onclick="plus()" class="btn1">+</button></td>
@@ -32,17 +60,19 @@
             <td><button onclick="btn7()" class="btn1">7</button></td>
             <td><button onclick="btn8()" class="btn1">8</button></td>
             <td><button onclick="btn9()" class="btn1">9</button></td>
+            <td><button onclick="reset()" class="btn1">AC</button></td>
         </tr>
         <tr>
             <td><button onclick="btn4()" class="btn1">4</button></td>
             <td><button onclick="btn5()" class="btn1">5</button></td>
             <td><button onclick="btn6()" class="btn1">6</button></td>
-            <td rowspan="2"><button onclick="run()" class="btn1">=</button></td>
+            <td><button onclick="run()" class="btn1">=</button></td>
         </tr>
         <tr>
             <td><button onclick="btn1()" class="btn1">1</button></td>
             <td><button onclick="btn2()" class="btn1">2</button></td>
             <td><button onclick="btn3()" class="btn1">3</button></td>
+            <td><button onclick="backspace()" class="btn1">del</button></td>
             
         </tr>
     </table>
@@ -102,6 +132,14 @@
         }
         function btn9(){
             ar.push(9)
+            input.value = ar.join('')
+        }
+        function reset(){
+            ar.push('AC')
+            input.value = location.reload()
+        }
+        function backspace(){
+            ar.pop()
             input.value = ar.join('')
         }
     </script>
